@@ -439,9 +439,7 @@ const Driver = {
 
     const scripts = (await response.text()).slice(0, 500000)
 
-    Driver.onDetect(request.url, analyze({ scripts })).catch(
-      Driver.error
-    )
+    Driver.onDetect(request.url, analyze({ scripts })).catch(Driver.error)
   },
 
   /**
