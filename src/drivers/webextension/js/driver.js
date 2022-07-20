@@ -419,7 +419,7 @@ const Driver = {
       return
     }
 
-    const { hostname } = new URL(request.documentUrl)
+    const { hostname } = new URL(request.url)
 
     if (!Driver.cache.hostnames[hostname]) {
       Driver.cache.hostnames[hostname] = {}
@@ -439,7 +439,7 @@ const Driver = {
 
     const scripts = (await response.text()).slice(0, 500000)
 
-    Driver.onDetect(request.documentUrl, analyze({ scripts })).catch(
+    Driver.onDetect(request.url, analyze({ scripts })).catch(
       Driver.error
     )
   },
